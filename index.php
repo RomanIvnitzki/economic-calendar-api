@@ -28,7 +28,7 @@ function sanitize($str) {
 
 foreach($elems as $element) {
     array_push($data, [
-        "economy" => sanitize($element->find("td.flagCur")[0]->attr['title']),
+        "economy" => sanitize($element->find("td.flagCur")[0]),
         "impact" =>  count($element->find("td.sentiment")[0]->find("i.grayFullBullishIcon")),
 	    "data" => isset($element->attr["event_timestamp"]) ? $element->attr["event_timestamp"] : null,
 	    "name" => count($name = $element->find("td.event")) > 0 ? sanitize($name[0]->text()) : null,
